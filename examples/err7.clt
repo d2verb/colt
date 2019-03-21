@@ -1,0 +1,7 @@
+fn Ret42(n, n) {
+  return n;
+}
+
+fn Main() {
+  Ret42(42, 42);
+}

@@ -1,0 +1,20 @@
+<Program> ::= <FuncDef>*
+<FuncDef> ::= "fn" FN_IDENT "(" <Params>? ")" "{" <VarDef>* <Stmt>* "}"
+<Params>  ::= VAR_IDENT ("," VAR_IDENT)*
+<VarDef>  ::= "var" VAR_IDENT ";"
+<Stmt>    ::= <IfStmt> | <ForStmt> | <SetStmt> | <FuncCallStmt>
+<IfStmt>  ::= "if" <Expr> "{" <Stmt>* "}" ("else" "{" <Stmt>* "}")?
+<ForStmt> ::= "for" <Expr> "{" <Stmt>* "}"
+<SetStmt> ::= VAR_IDENT "=" <Expr> ";"
+<FuncCallStmt> ::= <FuncCall> ";"
+<FuncCall>     ::= FN_IDENT "(" <Args>? ")"
+<Args>         ::= <Expr> ("," <Expr>)*
+<Expr>         ::= <CondExpr>
+<CondExpr>     ::= <AddExpr> ("<" <CondExpr> | "==" <CondExpr>)?
+<AddExpr>      ::= <MulExpr> ("+" <MulExpr> | "-" <MulExpr>)?
+<MulExpr>      ::= <PriExpr> ("*" <PriExpr> | "/" <PriExpr>)?
+<PriExpr>      ::= NUM | VAR_IDENT | <FuncCall>
+
+NUM            ::= [0-9]+
+VAR_IDENT      ::= [a-z][a-zA-Z0-9_]*
+FN_IDENT       ::= [A-Z][a-zA-Z0-9_]*

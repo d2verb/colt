@@ -1,0 +1,7 @@
+fn Main() {
+  return 42;
+}
+
+fn Main() {
+  var i;
+}

@@ -1,0 +1,9 @@
+fn Ret42(n) {
+  var i;
+  j = i + 1;
+  return n;
+}
+
+fn Main() {
+  Ret42(42);
+}

@@ -1,0 +1,4 @@
+fn Main() {
+  var i;
+  i = test();
+}

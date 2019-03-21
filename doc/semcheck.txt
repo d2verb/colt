@@ -1,0 +1,21 @@
+## Scope
+Colt lang doesn't have global scope and only has function scope (not like c lang, having block scope).
+All variable definitions must be placed on the top of the function body.
+
+## Type
+Colt lang only has one primitive type, (32-bit signed)int. So we don't have to do type check any more.
+
+## Function Signature
+We must check the number of arguments in function calls.
+If the number of arguments doesn't match the number of parameters of the called function, we emit error message.
+
+## Identifier re-definition
+Colt lang dosn't allow re-definition.
+
+## Entry point
+Colt lang assume the Main() function is its entry point.
+So If the program doesn't have Main() function, we emit error message.
+
+## The order of function definitions
+Colt lang is function-definition-order-independent langauge.
+So we can assume all function prototypes are already on the top of the program.

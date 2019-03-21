@@ -1,0 +1,3 @@
+fn Ret42() {
+  return 42;
+}
