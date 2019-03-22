@@ -8,6 +8,7 @@ int main(int argc, char* argv[])
   }
   Vec *tokens = tokenize(argv[1]);
   Vec* nodes = parse(tokens);
-  dump_ast(nodes);
+  // dump_ast(nodes);
   semcheck(nodes);
+  gen_x86(nodes);
 }

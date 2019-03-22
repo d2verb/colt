@@ -13,6 +13,8 @@
 /*************************************************
  * util.c
  ************************************************/
+#define MIN(a,b) ((a<b)?(a):(b))
+
 noreturn void error(const char *fmt, ...);
 
 typedef struct Vec {
@@ -42,6 +44,11 @@ typedef Vec Set;
 Set* set_new(void);
 void set_append(Set* s, char* e);
 int set_has(Set* s, char* e);
+
+typedef Vec Map;
+Map* map_new(void);
+void map_set(Map* map, char* key, int val);
+int map_get(Map* map, char* key);
 
 /*************************************************
  * tokenize.c
@@ -198,3 +205,8 @@ void dump_ast(Vec* nodes);
  * semcheck.c
  ************************************************/
 void semcheck(Vec* nodes);
+
+/*************************************************
+ * gen.c
+ ************************************************/
+void gen_x86(Vec* nodes);

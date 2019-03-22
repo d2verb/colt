@@ -111,3 +111,45 @@ int set_has(Set* s, char* e)
   }
   return 0;
 }
+
+/* map */
+typedef struct MapData {
+  char* key;
+  int val;
+} MapData;
+
+Map* map_new(void)
+{
+  return vec_new();
+}
+
+void map_set(Map* map, char* key, int val)
+{
+  Vec* vec = map;
+  int i;
+
+  for (i = 0; i < vec->len; i++) {
+    MapData* data = vec_get(vec, i);
+    if (!strcmp(key, data->key)) {
+      data->val = val;
+      break;
+    }
+  }
+
+  if (i == vec->len) {
+    MapData* new_data = malloc(sizeof(MapData));
+    new_data->key = key;
+    new_data->val = val;
+    vec_push(vec, new_data);
+  }
+}
+
+int map_get(Map* map, char* key)
+{
+  Vec* vec = map;
+  for (int i = 0; i < vec->len; i++) {
+    MapData* data = vec_get(vec, i);
+    if (!strcmp(key, data->key))
+      return data->val;
+  }
+}
