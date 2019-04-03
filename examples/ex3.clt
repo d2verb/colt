@@ -1,0 +1,10 @@
+fn Test(a, b) {
+  var c;
+  var d;
+  c = a + b;
+  return c;
+}
+
+fn Main() {
+  Test(1, 2);
+}

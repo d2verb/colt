@@ -1,4 +1,7 @@
 fn Test(r0, r1, r2, r3, r4, r5, a, b, c) {
+  var i;
+  var j;
+  var k;
 }
 
 fn Main() {
